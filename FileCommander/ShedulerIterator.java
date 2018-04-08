@@ -1,7 +1,7 @@
 package FileCommander;
 import java.io.IOException;
 
-public class ShedulerIterator implements ShedulerInput {
+public class ShedulerIterator implements ShedulerInterface {
    /* private int Time;
     private String Path;
     private int iterations;
@@ -10,7 +10,7 @@ public class ShedulerIterator implements ShedulerInput {
     int iterationQuantity=this.iterations;
     int delayTime = this.Time;*/
     @Override
-    public void LaunchIterator(int iterationQuantity,int delayTime, String filePath, FileWorker worker) throws InterruptedException, IOException {
+    public void LaunchIterator(int iterationQuantity,int delayTime, String filePath, FileOpenInterface worker) throws InterruptedException, IOException {
         for (int i = 0; i < iterationQuantity; i++) {
             worker.fileOpener(delayTime, filePath);
         }
