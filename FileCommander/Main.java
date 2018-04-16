@@ -6,8 +6,9 @@ public class Main {
         int iterationQuantity = 5;
         int delayTime=10000;
         String filePath="C:\\Users\\Computer\\Desktop\\вопросы.txt\\";
-        OpenFile worker= new ImplOpenFile();
-        IterationSheduler iterator = new ImplIterationSheduler(delayTime,filePath);
-        iterator.LaunchIteration(iterationQuantity,worker);
+        FileOpenerOptions options= new ImplFileOpenerOptions(iterationQuantity ,delayTime, filePath);
+        FileOpener worker= new ImplFileOpener();
+        IterationSheduler iterator = new ImplIterationSheduler(options);
+        iterator.LaunchIteration(options,worker);
     }
 }

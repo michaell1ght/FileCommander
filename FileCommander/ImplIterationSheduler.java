@@ -2,16 +2,14 @@ package FileCommander;
 import java.io.IOException;
 
 public  class ImplIterationSheduler implements IterationSheduler {
-    private int delayTime;
-    private String filePath;
-    ImplIterationSheduler(int delayTime, String filePath){
-    this.delayTime=delayTime;
-    this.filePath=filePath;
+    private FileOpenerOptions options;
+    ImplIterationSheduler(FileOpenerOptions options)
+    {this.options=options;
     }
     @Override
-    public void LaunchIteration(int iterationQuantity,OpenFile worker) throws InterruptedException, IOException {
-        for (int i = 0; i < iterationQuantity; i++) {
-            worker.OpenFileDelayedByPath(delayTime, filePath);
+    public void LaunchIteration(FileOpenerOptions options,FileOpener worker) throws InterruptedException, IOException {
+        for (int i = 0; i <options.GetIterationQuantity(); i++) {
+            worker.OpenFileDelayedByPath(options);
         }
     }
 }
